@@ -1,0 +1,88 @@
+Abstract
+With the advancement of Wi-Fi sensing technology, its significant benefits in
+convenient operation and privacy protection have become apparent, particularly
+in fields like smart homes, medical monitoring, and security surveillance, where
+the application prospects of Human Activity Recognition (HAR) technology are
+increasingly broad. This study focuses on a novel approach to HAR using Wi-Fi
+Channel State Information (CSI), especially under complex conditions such as
+Non-Line of Sight (NLoS) paths and through-wall transmissions. Traditionally,
+most research has concentrated on Line of Sight (LoS) path HAR, sensitive to
+environmental changes, while the NLoS path signals, especially through-wall signals, present unpredictability due to weak reflections caused by walls. Addressing
+this issue, we propose Wi-SensiNet, an innovative deep learning-based method
+that combines the spatial feature extraction capabilities of Convolutional Neural
+Networks (CNN) with the temporal sequence processing power of Bidirectional
+Long Short-Term Memory networks (BiLSTM). This method also incorporates
+an attention mechanism to enhance the accuracy of human activity recognition in complex environments. Wi-SensiNet is specially designed for through-wall
+settings, effectively handling the complexity of CSI data, and achieving accurate through-wall human activity detection. In our experiments, we collected
+a through-wall CSI dataset comprising seven common activities, including running, sitting, standing, squatting, falling, punching, and walking, and verified
+Wi-SensiNet’s average accuracy exceeded 99% on the original test set. These
+results not only demonstrate the model’s robustness and high accuracy in handling HAR tasks in complex environments but also highlight the potential of
+CNN and BiLSTM working in tandem to enhance performance.
+Keywords: Human activity recognition, Deep learning, WiFi sensing, Through
+wall,Channel state information.
+
+Introduction
+In recent years, Human Activity Recognition (HAR) has increasingly found applications in fields such as smart homes, medical monitoring, and security surveillance.Particularly with the proliferation of smart devices and the advancement of
+Internet of Things (IoT) technologies, Wi-Fi sensing technology has been increasingly
+applied, harnessing a detectable feature within Wi-Fi signals known as Channel State
+Information (CSI).This type of data can intricately illustrate how wireless signals
+are transmitted between sending and receiving devices, where movement of a person
+within the Wi-Fi signal propagation path induces changes in the signal’s phase and
+amplitude.These alterations are reflected in the CSI, a characteristic of Wi-Fi signals, offering detailed insights into the signal propagation path, transmission time,
+and attenuation.Consequently, by analyzing the variations in CSI data, one can infer
+changes in human movement and positioning.Compared to traditional methods reliant
+on visual or wearable sensors, this approach offers a more covert and non-line-ofsight dependent solution.Wi-Fi-based Human Activity Recognition (HAR) is achieved
+through the reception of both Signal Strength Information (RSSI) and Channel State
+Information (CSI).In comparison to RSS, CSI can provide detailed channel frequency
+response information[1] on multiple channels at the physical layer, offering finer granularity than RSSI and the ability to distinguish multipath components, rendering it
+more effective in recognizing complex human movements.Owing to its high-resolution
+characteristics, CSI has emerged as a pivotal technology in the HAR domain, particularly excelling in applications requiring precise capture and analysis of human
+dynamics.
+The majority of solutions for Human Activity Recognition (HAR) based on
+Channel State Information (CSI) in specific environments employ deep learning techniques, including gesture recognition[2][3], motion detection[4][5], and fall
+detection[6][7].However, researchers often conduct their studies in ideal environments
+with relatively simple Wi-Fi signal propagation. Due to the poor interference resistance of Wi-Fi signals, the accuracy of these solutions may significantly diminish
+in more complex scenarios such as through-wall or Non-Line-of-Sight (NLOS) conditions.However, these complex scenarios often represent the primary application
+contexts for human activity recognition.The challenges encountered in human perception through walls using Wi-Fi include technical limitations such as signal attenuation,
+multipath interference, signal noise, environmental factors like wall composition,
+dynamic environments, as well as privacy and ethical considerations.Consequently,
+achieving high-accuracy human activity recognition in complex environments has
+become a critical issue.Human Activity Recognition based on CSI fundamentally
+involves analyzing the impact of human activity on wireless signals, suggesting that
+a potential solution to the aforementioned issues is to extract and utilize the most
+representative features within the wireless signals.Addressing these challenges is crucial for the advancement of this field.Robust algorithms, models, and frameworks
+are required to mitigate the effects of signal issues and adapt to dynamic environments.Furthermore, the latest advancements in Multiple-Input Multiple-Output
+(MIMO) communications and the utilization of Wi-Fi signals offer a promising avenue
+to realize this goal.
+
+In this study, we conducted an in-depth analysis of the original Channel State Information (CSI), with a particular focus on the impact of signal attenuation and minor
+movements on CSI in through-wall scenarios.To fully extract features, we treated the
+data from each antenna as an independent input channel, incorporating both timedomain and frequency-domain information.Additionally, we employed median filtering
+to optimize data quality and reduce noise, coupled with the introduction of Gaussian
+noise enhancement to simulate uncertainties in real-world environments, effectively
+mitigating noise interference caused by minor and inadvertent movements.These
+strategies collectively enhanced the reliability of the data, improving the model’s
+performance and adaptability in complex environments.
+In summary, this research makes the following key contributions:
+• In addressing the challenges of datasets in through-wall scenarios, we devised and
+applied a data processing strategy combining median filtering with Gaussian noise,
+which not only effectively reduced data noise but also significantly enhanced the
+quality and generalizability of the data.Training with pre-processed data led to a
+substantial increase in accuracy on the original dataset.
+• We introduced the Wi-SensiNet approach, which integrates Convolutional Neural
+Networks (CNN) with Bidirectional Long Short-Term Memory (BiLSTM) networks,
+incorporating an attention mechanism to establish an advanced framework for
+time-series analysis. The specially tailored BiLSTM modules process deep features
+extracted by the CNN layers, and the incorporated attention layer further optimizes
+the model’s recognition of critical temporal steps, enhancing the overall accuracy
+and robustness of the model in understanding and predicting complex time-series
+data.
+• We collected and constructed a through-wall dataset encompassing nine common
+human activities, including running, sitting, standing, squatting, falling, punching,
+and standing.By applying the Wi-SensiNet method, we achieved an average accuracy
+of 99% on the original dataset, validating the efficacy and precision of our approach
+in practical applications. application.
+The remainder of this paper is structured as follows: Chapter 2 provides a comprehensive review of existing studies in the related field,Chapter 3 details the dataset
+employed in this research,Chapter 4 describes the experimental procedure and results,
+and includes a comparative analysis with existing studies.Chapter 5 concludes the
+paper with key findings and insights
