@@ -12,21 +12,17 @@ load_dotenv()
 os.environ['OPENAI_API_KEY']=os.getenv("OPENAI_API_KEY")
 
 app=FastAPI(
-    title="Langchain Server",
+    title="Python Assistent",
     version="1.0",
     decsription="API Server"
 )
-add_routes(
-    app,
-    ChatOpenAI(),
-    path="/openai"
-)
+
 model=ChatOpenAI()
 ##ollama llama2
 llm=Ollama(model="llama2")
 
 prompt1=ChatPromptTemplate.from_template("Write me an essay about {topic} with 100 words")
-prompt2=ChatPromptTemplate.from_template("Write me an poem about {topic} with 20 words")
+prompt2=ChatPromptTemplate.from_template("Help to write a python code for provided {topic}.")
 
 add_routes(
     app,
@@ -37,7 +33,7 @@ add_routes(
 add_routes(
     app,
     prompt2|llm,
-    path="/poem"
+    path="/code"
 )
 
 

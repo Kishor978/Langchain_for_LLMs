@@ -9,7 +9,7 @@ def get_openai_response(input_text):
 
 def get_ollama_response(input_text):
     response=requests.post(
-    "http://localhost:8000/poem/invoke",
+    "http://localhost:8000/code/invoke",
     json={'input':{'topic':input_text}})
 
     return response.json()['output']
@@ -18,7 +18,7 @@ def get_ollama_response(input_text):
 
 st.title('Langchain Demo With LLAMA2 API')
 input_text=st.text_input("Write an essay on(using openAI)")
-input_text1=st.text_input("Write a poem on(using llama2)")
+input_text1=st.text_input("Write code (using llama2)")
 
 if input_text:
     st.write(get_openai_response(input_text))
